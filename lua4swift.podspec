@@ -46,20 +46,22 @@ Pod::Spec.new do |s|
   s.swift_version    = '4.0'
   s.module_name = 'Lua'
 
-  s.subspec 'Lua-macOS' do |lib|
-    s.osx.deployment_target = '10.9'
-    lib.dependency 'lua4swift/LuaSource'
-    lib.source_files = 'Lua/*.{swift}'
-  end
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.9'
 
-  s.subspec 'Lua-iOS' do |lib|
-    s.ios.deployment_target = '8.0'
-    lib.dependency 'lua4swift/LuaSource'
-    lib.source_files = 'Lua/*.{swift}'
-  end
+  # s.subspec 'Lua' do |lib|
+    # lib.dependency 'lua4swift/LuaSource'
+    lib.source_files = 'Lua/*.{swift}', 'LuaSource/*.{c,h,m}'
+  # end
 
-  s.subspec 'LuaSource' do |lib|
-    lib.source_files = 'LuaSource/*.{c,h,m}'
-  end
+  # s.subspec 'Lua-iOS' do |lib|
+  #
+  #   lib.dependency 'lua4swift/LuaSource'
+  #   lib.source_files = 'Lua/*.{swift}'
+  # end
+  #
+  # s.subspec 'LuaSource' do |lib|
+  #   lib.source_files = 'LuaSource/*.{c,h,m}'
+  # end
 
 end
